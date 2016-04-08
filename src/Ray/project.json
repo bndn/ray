@@ -1,0 +1,36 @@
+{
+    "version": "0.0.0",
+    "description": "",
+    "authors": [
+        "Andreas Bjørn Hassing Nielsen <abhn@itu.dk>"
+    ],
+    "tags": [
+    ],
+    "projectUrl": "https://github.itu.dk/bndn/ray",
+    "licenseUrl": "https://github.itu.dk/bndn/ray/blob/master/LICENSE.md",
+
+    "dependencies": {
+        "Vector": "",
+        "Point": "",
+        "FSharp.Dnx": {
+            "type": "build",
+            "version": "1.0.0-*"
+        }
+    },
+
+    "frameworks": {
+        "dnx451": {}
+    },
+
+    "compiler": {
+        "name": "F#",
+        "compilerAssembly": "FSharp.Dnx",
+        "compilerType": "FSharp.Dnx.FSharpProjectCompiler"
+    },
+    "fsharp": {
+        "files": [
+            "Ray.fsi",
+            "Ray.fs"
+        ]
+    }
+}
