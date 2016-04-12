@@ -4,11 +4,31 @@ module Ray.Test
 open Xunit
 open FsUnit.Xunit
 
-// TODO: should have some awesome tests here!
+[<Fact>]
+let ``make constructs a ray given a point of origin and a vector`` () =
+    let p = Point.make 0.0 4.0 4.0
+    let v = Vector.make 0.0 -4.0 -4.0
+    let r = Ray.make p v
 
-//[<Fact>]
-//let ``make constructs a point given three coordinates`` () =
-//    let p = Point.make 1.0 2.0 3.0
-//
-//    // Check that a point was constructed
-//    p |> should be instanceOfType<Point>
+    // Check that a ray was constructed
+    r |> should be instanceOfType<Ray>
+
+[<Fact>]
+let ``getOrigin gets the point of origin for a ray`` () =
+    let p = Point.make 0.0 4.0 4.0
+    let v = Vector.make 0.0 -4.0 -4.0
+    let r = Ray.make p v
+
+    // Check that the point of origin for the ray is the same as the
+    // one used for the construction of it
+    Ray.getOrigin r |> should equal p
+
+[<Fact>]
+let ``getVector gets the (normalized) vector for a ray`` () =
+    let p = Point.make 0.0 4.0 4.0
+    let v = Vector.make 0.0 -4.0 -4.0
+    let r = Ray.make p v
+
+    // Check that the vector for the ray is the same as the one used
+    // for the construction of it, but normalized
+    Ray.getVector r |> should equal (Vector.normalise v)
