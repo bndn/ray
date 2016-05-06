@@ -1,10 +1,13 @@
 {
     "version": "0.0.0",
-    "description": "",
+    "description": "A library for modelling 3-dimensional rays of light",
     "authors": [
         "Andreas Bjørn Hassing Nielsen <abhn@itu.dk>"
     ],
     "tags": [
+        "ray",
+        "model",
+        "3d"
     ],
     "projectUrl": "https://github.itu.dk/bndn/ray",
     "licenseUrl": "https://github.itu.dk/bndn/ray/blob/master/LICENSE.md",
