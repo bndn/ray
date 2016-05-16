@@ -1,9 +1,11 @@
 /// Copyright (C) 2016 The Authors.
 module Ray
 
-open Vector
 open Point
+open Transform
+open Vector
 
+[<NoComparison>]
 type Ray = R of Point * Vector
 
 /// <summary>
@@ -31,3 +33,12 @@ let getOrigin (R(o, _)) = o
 /// <param name=r>The ray whose normalized vector to get.</param>
 /// <returns>The normalized vector for a ray.</returns>
 let getVector (R(_, d)) = d
+
+/// <summary>
+/// Transform the ray with some transformation.
+/// </summary>
+/// <param name=r>The ray to transform.</param>
+/// <param name=t>The transformation to apply to the ray.</param>
+/// <returns>The transformed ray.</returns>
+let transform (R(o, d)) (t:Transformation) =
+    R(o * t, d * t)

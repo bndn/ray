@@ -1,8 +1,9 @@
 /// Copyright (C) 2016 The Authors.
 module Ray
 
-open Vector
 open Point
+open Transform
+open Vector
 
 type Ray
 
@@ -29,3 +30,11 @@ val getOrigin : r:Ray -> Point
 /// <param name=r>The ray whose normalized vector to get.</param>
 /// <returns>The normalized vector for a ray.</returns>
 val getVector : r:Ray -> Vector
+
+/// <summary>
+/// Transform the ray with some transformation.
+/// </summary>
+/// <param name=r>The ray to transform.</param>
+/// <param name=t>The transformation to apply to the ray.</param>
+/// <returns>The transformed ray.</returns>
+val transform : r:Ray -> t:Transformation -> Ray
