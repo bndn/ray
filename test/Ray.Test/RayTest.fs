@@ -44,3 +44,14 @@ let ``transform transforms a ray with the appropriate transformation`` () =
 
     Ray.getOrigin tr |> should equal (Point.make -1. 1. 1.)
     Ray.getVector tr |> should equal tv
+
+[<Fact>]
+let ``transform with an empty matrix does nothing to the ray`` () =
+    let p = Point.make 1. 1. 1.
+    let v = Vector.make -1. -1. -1.
+    let nv = Vector.normalise v
+    let r = Ray.make p v
+    let tr = Ray.transform r (Transform.empty)
+
+    Ray.getOrigin tr |> should equal p
+    Ray.getVector tr |> should equal nv
