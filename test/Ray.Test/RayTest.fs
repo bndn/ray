@@ -46,6 +46,18 @@ let ``transform transforms a ray with the appropriate transformation`` () =
     Ray.getVector tr |> should equal tv
 
 [<Fact>]
+let ``transform transforms a ray with the appropriate transformation, using the static member`` () =
+    let p = Point.make 1. 1. 1.
+    let v = Vector.make -1. -1. -1.
+    let r = Ray.make p v
+    let tr = r * (Transform.mirror Transform.Axis.X)
+
+    let tv = (Vector.normalise v) * (Transform.mirror Transform.Axis.X)
+
+    Ray.getOrigin tr |> should equal (Point.make -1. 1. 1.)
+    Ray.getVector tr |> should equal tv
+
+[<Fact>]
 let ``transform with an empty matrix does nothing to the ray`` () =
     let p = Point.make 1. 1. 1.
     let v = Vector.make -1. -1. -1.
