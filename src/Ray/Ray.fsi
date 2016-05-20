@@ -5,7 +5,16 @@ open Point
 open Transform
 open Vector
 
-type Ray
+[<Sealed>]
+[<NoComparison>]
+type Ray =
+    /// <summary>
+    /// Transform a ray with a transformation.
+    /// </summary>
+    /// <param name=r>The ray to transform.</param>
+    /// <param name=t>The transformation to apply to the ray.</param>
+    /// <returns>The transformed ray.</returns>
+    static member (*) : r:Ray * t:Transformation -> Ray
 
 /// <summary>
 /// Create a ray; a normalized vector with a point of origin.

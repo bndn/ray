@@ -35,10 +35,19 @@ let getOrigin (R(o, _)) = o
 let getVector (R(_, d)) = d
 
 /// <summary>
-/// Transform the ray with some transformation.
+/// Transform a ray with a transformation.
 /// </summary>
 /// <param name=r>The ray to transform.</param>
 /// <param name=t>The transformation to apply to the ray.</param>
 /// <returns>The transformed ray.</returns>
 let transform (R(o, d)) (t:Transformation) =
     R(o * t, d * t)
+
+type Ray with
+    /// <summary>
+    /// Transform a ray with a transformation.
+    /// </summary>
+    /// <param name=r>The ray to transform.</param>
+    /// <param name=t>The transformation to apply to the ray.</param>
+    /// <returns>The transformed ray.</returns>
+    static member (*) (r, t) = transform r t
